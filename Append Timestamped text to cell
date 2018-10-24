@@ -1,0 +1,20 @@
+Sub insert_Timestamped_Text()
+
+' Appends Timestamped text to selected cell
+
+    Dim ins_Comment As String
+
+' Get text input
+    ins_Comment = InputBox("Please Enter Comment.", "Enter Comment")
+
+    With Selection
+
+        If IsEmpty(ActiveCell) Then
+            .Value = Format(Now, "dd-mmm hh:mm") & " - " & ins_Comment
+        Else
+            .Value = .Value & Chr(10) & Format(Now, "dd-mmm hh:mm") & " - " & ins_Comment
+        End If
+
+    End With
+
+End Sub
